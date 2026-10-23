@@ -1,18 +1,18 @@
-# Optimizer & USTAR Block-Aware
+# USTAR Block-Aware : Color Table Optimizers and Block-Aware Traversal
 
-This repository contains the implementation of the tools described in the paper "Compact and Efficient Representations of Colored k-mer Sets" by Marco Squarcina. The project was developed at the Department of Information Engineering of the University of Padua.
+This repository contains the implementation of the tools described in the paper "Beyond Color Table Explosion: Plain-Text Compression of Colored k-mer Sets at Scale" by Marco Squarcina, Enrico Rossignolo, and Matteo Comin
 
 ## Project Description
 
 The analysis of large-scale pangenomic and metagenomic datasets requires compact data structures, such as Colored de Bruijn Graphs (c-dBG). State-of-the-art tools like GGCAT are extremely fast at building these graphs, but they suffer from the "color table explosion" problem, producing extremely large color output files that exceed the size of the genomic files themselves.
 
 This project introduces two main components to solve this bottleneck:
-* **Optimizer**: A method inspired by the md-Fulgor tool that drastically compresses the color table produced by GGCAT.
-* **USTAR Block-Aware**: A modified version of the USTAR tool that accepts the optimized files to assemble simplitigs, reducing storage space and maintaining color coherence.
+* **Color Table Optimizer**: A method inspired by the md-Fulgor tool that drastically compresses the color table produced by GGCAT.
+* **USTAR Block-Aware Traversal**: A modified version of the USTAR tool that accepts the optimized files to assemble simplitigs, reducing storage space and maintaining color coherence.
 
 ## Main Features
 
-### 1. Optimizer
+### 1. Color Table Optimizer
 The optimization process eliminates data redundancy through several phases:
 * **Sketching**: Computes compact MinHash signatures to capture similarities between sets containing similar colors.
 * **Clustering-based Reordering**: Applies the K-Means algorithm to group and reorder data, maximizing data locality.
